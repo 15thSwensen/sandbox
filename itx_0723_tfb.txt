@@ -1,0 +1,49 @@
+private _data = [[[369078,7056.754913397994,15993.191408858364,"mil_dot","ColorBlack","AO Raider",0,1],[369079,5620.357479726513,14947.568397715191,"mil_objective","ColorBlack","OBJ Saber",0,1],[369080,11112.735780084808,15771.124096219093,"hd_arrow","ColorRed","QRF",281.25,1],[369081,8224.886679339084,18075.273542555493,"hd_arrow","ColorRed","QRF",225,1],[369082,3472.7299312765026,18175.775847110457,"hd_arrow","ColorRed","QRF",140.625,1],[369098,5249.076984939319,15171.289862492686,"mil_ambush","ColorBlue","SBF Valkyrie",0,1],[369099,6100.124287176488,14923.289039037256,"mil_dot","ColorBlue","BP Loki",0,1],[369101,5171.39749963445,14481.01123204876,"mil_dot","ColorBlue","BP Odin",0,1],[369102,5502.6776575522745,15002.770845589637,"mil_dot","ColorBlue","BP Thor",0,1],[369103,5584.926524345665,14671.453742123822,"mil_dot","ColorBlue","BP Baldr",0,1],[369104,4621.929375639714,14377.013985900785,"mil_ambush","ColorBlue","SBF Fenrir",0,1],[369105,4842.402032460886,14038.730076625056,"mil_ambush","ColorBlue","SBF Skoll",0,1],[369106,4683.6160257347565,14194.868640701305,"mil_dot","ColorBlue","BP Heimdall",0,1],[369107,5769.264054974966,14348.225106851936,"mil_ambush","ColorBlack","SBF Freyja",0,1],[369108,6944.933410715663,14826.322998984324,"mil_ambush","ColorBlack","SBF Bifrost",0,1],[369110,5045.508840395273,15572.140281863547,"mil_dot","ColorRed","LOA",0,1],[369111,7057.479078054609,15009.291872044589,"mil_dot","ColorRed","LOA",0,1],[369114,6261.002047655906,14018.589267776573,"mil_dot","colorCivilian","PL Purple",0,1],[369115,5442.133352829362,14036.453140683041,"mil_dot","ColorBlue","PL Blue",0,1],[369118,5410.849391295548,15779.046511793926,"mil_ambush","ColorBlack","SBF Revna",0,1]],[[369072,[4992.289397755319,15998.810138901616,4989.764585465711,14007.09965919712],"ColorBlack"],[369073,[4989.274730244597,14002.101053209679,7000.057959896046,14005.117043716678],"ColorBlack"],[369074,[7003.0726274067665,14008.132659238689,7003.0726274067665,16010.73385654482],"ColorBlack"],[369075,[7006.087294917489,16007.734740362195,4989.274730244597,16004.71762490024],"ColorBlack"],[369090,[16376.38391756264,12606.466248178973,14795.65725983331,12242.193110452159],"ColorBlue"],[369091,[14759.74088980325,12217.81019726043,13936.613539991227,10459.293157274775],"ColorBlue"],[369092,[13927.474777014184,10450.1924431737,16070.62562013974,2745.970062851934],"ColorBlue"],[369093,[16086.537130654728,2698.205812982874,16277.475256834607,3446.512394264816],"ColorBlue"],[369094,[16054.714109624749,2698.205812982874,15529.634262630083,3191.769728296499],"ColorBlue"],[369109,[5013.955364503752,15551.047471924048,6151.6416510844265,15016.863942242464,6242.917458692792,14977.718110928989,6447.397280304139,14951.438561122208,7252.750767656091,15000.569893369668,7261.889530633134,15000.569893369668],"ColorRed"],[369112,[5016.073819706626,15533.9495903232,5618.626007921298,15045.570354726442,6262.7335194611205,13970.09693165698,6262.7335194611205,13970.09693165698],"colorCivilian"],[369117,[4649.345664570844,13565.342730826987,5029.746673490276,13984.672938613445,5278.77796461471,14318.308962247354,5263.927474777014,14527.402771579566,5126.846030121363,14603.95624275584,4741.875639713408,14619.952490464317,4339.770068723498,14483.984384942276],"ColorBlue"]],[[369076,5456.983842667057,15011.287204185426,"blu",false,1,0,0,0,"Task Force",1],[369077,4455.222944197155,27701.098773617276,"blu",false,0,0,0,0,"ARG",1],[369083,16834.37812485925,12690.102063453796,"blu",false,0,0,0,0,"Evac Site",1],[369084,14924.996863060469,16813.02983902582,"red",false,0,0,0,0,"",1],[369085,9416.420752598518,20263.25976842773,"red",false,0,0,0,0,"",1],[369086,17307.792164924896,13457.332383522678,"red",false,0,0,0,0,"",1],[369087,17141.5708716243,11322.831059237742,"red",false,0,0,0,0,"",1],[369088,25728.91250273857,21372.542479535823,"red",false,0,0,0,0,"",1],[369089,20844.07877463669,6754.9409069893945,"red",false,0,0,0,0,"",1],[369095,5171.39749963445,14519.86341042408,"blu",false,0,0,0,0,"Checkpoint",1],[369096,6043.007018569967,14916.437181127772,"blu",false,0,0,0,0,"Checkpoint",1],[369097,5210.237242286885,15138.144732648074,"blu",false,0,0,0,0,"Sand bag OP",1]]];
+
+_data params ['_icons', '_poly', '_metis'];
+
+if (!isNil 'gtd_map_allMarkers') then {
+  {
+    deleteMarker _x;
+  } forEach gtd_map_allMarkers;
+};
+
+if (!isNil 'gtd_map_allMetisMarkers') then {
+  {
+    [_x] call mts_markers_fnc_deleteMarker
+  } forEach gtd_map_allMetisMarkers;
+};
+
+gtd_map_allMarkers = [];
+gtd_map_allMetisMarkers = [];
+
+{
+  _x params ['_id', '_points', '_color'];
+  _points params ['_x', '_y'];
+  private _marker = createMarker [ format ['_USER_DEFINED #%1/planops%2/1', clientOwner, _id], [_x, _y], 0];
+  _marker setMarkerShape 'polyline';
+  _marker setMarkerPolyline _points;
+  _marker setMarkerColor _color; 
+  gtd_map_allMarkers pushBack _marker;
+} forEach _poly;
+
+{
+  _x params ['_id', '_x', '_y', '_icon', '_color', '_text', '_rotate',['_scale',1]];
+  private _marker = createMarker [ format ['_USER_DEFINED #%1/planops%2/1', clientOwner, _id], [_x, _y], 0];
+  _marker setMarkerShape 'ICON';
+  _marker setMarkerDir _rotate;
+  _marker setMarkerColor _color; 
+  _marker setMarkerText _text;
+  _marker setMarkerType _icon;
+  _marker setMarkerSize [_scale,_scale];
+  gtd_map_allMarkers pushBack _marker;
+} forEach _icons;
+
+{
+  _x params ['_id', '_x', '_y', '_sideid', '_dashed', '_icon', '_mod1', '_mod2', '_size', '_designation',['_scale',1]];
+  private _marker = [[_x,_y], 1, true, [[_sideid, _dashed], [_icon, _mod1, _mod2], [_size, false, false], [], _designation], _scale * 1.3] call mts_markers_fnc_createMarker;
+  gtd_map_allMetisMarkers pushBack _marker;
+} forEach _metis;
+
+publicVariable 'gtd_map_allMarkers';
+publicVariable 'gtd_map_allMetisMarkers';
